@@ -12,36 +12,40 @@
 <body>
     <h1>Calculator</h1>
     <div class="calculator">
-        <textarea name="display" id="" cols="30" rows="10" disabled></textarea>
+        <div class="output">
+            <div data-previous-operand class="previous-operand"></div>
+            <div data-current-operand class="current-operand"></div>
+        </div>
+        </textarea>
         <div class="row">
-            <button>AC</button>
-            <button>%</button>
-            <button>&larr;</button>
-            <button class="divide operator">/</button>
+            <button data-all-clear>AC</button>
+            <button data-percent>%</button>
+            <button data-delete>&larr;</button>
+            <button data-operand class="divide operator">/</button>
         </div>
         <div class="row">
-            <button>7</button>
-            <button>8</button>
-            <button>9</button>
-            <button class="multiply operator">*</button>
+            <button data-numbers>7</button>
+            <button data-numbers>8</button>
+            <button data-numbers>9</button>
+            <button data-operand class="multiply operator">*</button>
         </div>
         <div class="row">
-            <button>4</button>
-            <button>5</button>
-            <button>6</button>
-            <button class="operator">-</button>
+            <button data-numbers>4</button>
+            <button data-numbers>5</button>
+            <button data-numbers>6</button>
+            <button data-operand class="operator">-</button>
         </div>
         <div class="row">
-            <button>1</button>
-            <button>2</button>
-            <button>3</button>
-            <button class="operator">+</button>
+            <button data-numbers>1</button>
+            <button data-numbers>2</button>
+            <button data-numbers>3</button>
+            <button data-operand class="operator">+</button>
         </div>
         <div class="row">
-            <button>0</button>
-            <button>00</button>
-            <button>.</button>
-            <button class="operator">=</button>
+            <button data-numbers>0</button>
+            <button data-numbers>00</button>
+            <button data-numbers>.</button>
+            <button data-equal class="operator">=</button>
         </div>
     </div>
 </body>

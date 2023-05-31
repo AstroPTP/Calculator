@@ -54,18 +54,28 @@ button{
 }
 
 /*Display area*/
-textarea {
-    margin: 2% 3%;
-    resize: none;
-    background: none;
-    outline: none;
-    border: none;
+.output {
+    grid-column: 1 / -1;
     color: #fff;
-    font-size: 1.5rem;
     height: 120px;
     text-align: right;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    padding: 10px;
+    word-wrap: break-word;
+    word-break: break-all;
 }
 
+.output .previous-operand {
+    color: rgba(255,255,255,.75);
+    font-size: 1.5rem;
+}
+
+.output .current-operand {
+    color: white;
+    font-size: 2.5rem;
+}
 /*Operator buttons*/
 button.operator{
     background: #f69906;

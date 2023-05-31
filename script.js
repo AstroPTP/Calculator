@@ -1,27 +1,130 @@
-let string = "";
-let buttons = document.querySelectorAll("button");
-
-Array.from(buttons).forEach((button)=>{
-    button.addEventListener("click",(e)=>{
-        //show result when user clicked =   
-        if(e.target.innerHTML == "="){
-            string = eval(string);
-            document.querySelector("textarea").innerText = string;
-        } else if(e.target.innerHTML == "AC") {
-            //clear full calculation
-            string = "";
-            document.querySelector("textarea").innerText = string;
-        } else if(e.target.innerHTML == "←") {
-            //remove last element using slice
-            string = string.slice(0, -1);
-            document.querySelector("textarea").innerText = string;
-        }else if(e.target.innerHTML == "%") {
-            //
-            string = string / 100;
-            document.querySelector("textarea").innerText = string; 
-        } else {
-            string = string + e.target.innerText;
-            document.querySelector("textarea").innerText = string;
+class Calculator {
+    constructor(previousOperandTextElement, currentOperandTextElement) {
+        this.previousOperandTextElement = previousOperandTextElement
+        this.currentOperandTextElement = currentOperandTextElement
+        this.clear()
+    }
+    clear() {
+        this.currentOperand = ''
+        this.previousOperand = ''
+        this.operation = undefined
+    }
+    delete() {
+        this.currentOperand = this.currentOperand.toString().slice(0, -1)
+    }
+    appendNum(number) {
+        if (number === '.' && this.currentOperand.includes('.')) return
+        this.currentOperand = this.currentOperand.toString() + number.toString()
+    }
+    chooseOperation(operation) {
+        if (this.currentOperand === '') return
+        if (this.previousOperand !== '') {
+            this.compute()
         }
-    }) 
+        this.operation = operation
+        this.previousOperand = this.currentOperand
+        this.currentOperand = ''
+    }
+    compute() {
+        let computation
+        const prev = parseFloat(this.previousOperand)
+        const current = parseFloat(this.currentOperand)
+        if (isNaN(prev) || isNaN(current)) return
+        switch (this.operation) {
+            case '+':
+                computation = prev + current
+                break
+            case '-':
+                computation = prev - current
+                break
+            case 'x':
+                computation = prev * current
+                break
+            case '÷':
+                computation = prev / current
+                break
+            default: 
+                return
+        }
+        this.currentOperand = computation
+        this.operation = undefined
+        this.previousOperand = ''
+    }
+    //TODO: Solve % case when display percent of the prev
+    
+    
+    getDisplayNumber(number) {
+        const stringNum = number.toString()
+        const integerDigits = parseFloat(stringNum.split('.')[0])
+        const decimalDigits = stringNum.split('.')[1]
+        let integerDisplay
+        if (isNaN(integerDigits)) {
+            integerDisplay = ''
+        } else {
+            integerDisplay = integerDigits.toLocaleString('en', {
+                maximumFractionDigits: 0
+            })
+        }
+        if (decimalDigits != null) {
+            return `${integerDisplay}.${decimalDigits}`
+        } else {
+            return integerDisplay
+        }
+    }
+    updateDisplay(){
+        this.currentOperandTextElement.innerText = this.getDisplayNumber(this.currentOperand)
+        if(this.operation != null) {
+            this.previousOperandTextElement.innerText = `${this.getDisplayNumber(this.previousOperand)} ${this.operation}`        
+        } else{
+            this.previousOperandTextElement.innerText = ''
+        }
+    }
+}
+
+/*-----Variables------*/
+const numberButtons = document.querySelectorAll('[data-numbers]')
+const operationButtons = document.querySelectorAll('[data-operand]')
+const equalButton = document.querySelector('[data-equal]')
+const deleteButton = document.querySelector('[data-delete]')
+const allClearButton = document.querySelector('[data-all-clear]')
+const percentButton = document.querySelector('[data-percent]')
+const previousOperandTextElement = document.querySelector('[data-previous-operand]')
+const currentOperandTextElement = document.querySelector('[data-current-operand]')
+
+/**/
+const calculator = new Calculator(previousOperandTextElement, currentOperandTextElement)
+
+numberButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        calculator.appendNum(button.innerText)
+        calculator.updateDisplay()
+    })
 })
+
+operationButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        calculator.chooseOperation(button.innerText)
+        calculator.updateDisplay()
+    })
+})
+
+percentButton.addEventListener('click', button =>{
+    calculator.percent()
+    calculator.updateDisplay()
+})
+
+equalButton.addEventListener('click', button =>{
+    calculator.compute()
+    calculator.updateDisplay()
+})
+
+allClearButton.addEventListener('click', button =>{
+    calculator.clear()
+    calculator.updateDisplay()
+})
+
+deleteButton.addEventListener('click', button =>{
+    calculator.delete()
+    calculator.updateDisplay()
+})
+
