@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,10 +8,11 @@
     <link rel="icon" href="Images/calculator.png">
     <title>Calculator</title>
     <!------------CSS--------------------->
-    <link rel="stylesheet" href="Styles/main.css">  
+    <link rel="stylesheet" href="Styles/main.css">
     <!------------Boxicon CSS---------->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
+
 <body>
     <!----------Side bar---------->
     <nav class="sidebar close">
@@ -32,7 +34,7 @@
                 <ul class="menu-links">
                     <li class="nav-links">
                         <a href="#">
-                            <i class='bx bx-home-alt-2 icon' ></i>
+                            <i class='bx bx-home-alt-2 icon'></i>
                             <span class="text nav-text">Dashboard</span>
                         </a>
                     </li>
@@ -56,7 +58,7 @@
                     </li>
                     <li class="nav-links">
                         <a href="#">
-                            <i class='bx bx-conversation icon' ></i>
+                            <i class='bx bx-conversation icon'></i>
                             <span class="text nav-text">Feedback</span>
                         </a>
                     </li>
@@ -77,45 +79,47 @@
             </div>
         </div>
     </nav>
-    <!--Calculator-->
-        <div class="calculator">
-            <div class="output">
-                <div data-previous-operand class="previous-operand"></div>
-                <div data-current-operand class="current-operand"></div>
-            </div>
-            </textarea>
-            <div class="row">
-                <button data-all-clear>AC</button>
-                <button data-percent>%</button>
-                <button data-delete>&larr;</button>
-                <button data-operand class="divide operator">÷</button>
-            </div>
-            <div class="row">
-                <button data-numbers>7</button>
-                <button data-numbers>8</button>
-                <button data-numbers>9</button>
-                <button data-operand class="multiply operator">*</button>
-            </div>
-            <div class="row">
-                <button data-numbers>4</button>
-                <button data-numbers>5</button>
-                <button data-numbers>6</button>
-                <button data-operand class="operator">-</button>
-            </div>
-            <div class="row">
-                <button data-numbers>1</button>
-                <button data-numbers>2</button>
-                <button data-numbers>3</button>
-                <button data-operand class="operator">+</button>
-            </div>
-            <div class="row">
-                <button data-numbers>0</button>
-                <button data-numbers>00</button>
-                <button data-numbers>.</button>
-                <button data-equal class="operator">=</button>
-            </div>
-        </div>   
+    <!----------Calculator---------->
+    <h1 class="title">Standard</h1>
+    <div class="calculator">
+        <i class='bx bx-history'></i>
+        <div class="output">
+            <div data-previous-operand class="previous-operand"></div>
+            <div data-current-operand class="current-operand"></div>
+        </div>
+        <div class="row">
+            <button data-all-clear>AC</button>
+            <button data-percent>%</button>
+            <button data-delete>&larr;</button>
+            <button data-operand class="divide operator">÷</button>
+        </div>
+        <div class="row">
+            <button data-numbers>7</button>
+            <button data-numbers>8</button>
+            <button data-numbers>9</button>
+            <button data-operand class="multiply operator">*</button>
+        </div>
+        <div class="row">
+            <button data-numbers>4</button>
+            <button data-numbers>5</button>
+            <button data-numbers>6</button>
+            <button data-operand class="operator">-</button>
+        </div>
+        <div class="row">
+            <button data-numbers>1</button>
+            <button data-numbers>2</button>
+            <button data-numbers>3</button>
+            <button data-operand class="operator">+</button>
+        </div>
+        <div class="row">
+            <button data-numbers>0</button>
+            <button data-numbers>00</button>
+            <button data-numbers>.</button>
+            <button data-equal class="operator">=</button>
+        </div>
+    </div>
 </body>
 <script src="Scripts/calc.js"></script>
 <script src="Scripts/sidebar.js"></script>
+
 </html>
