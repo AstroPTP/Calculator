@@ -289,6 +289,10 @@ body.dark .switch::before{
     left: 20px;
 }
 
+body.dark .title{
+    color: #ccc;
+}
+
 body.dark .calculator{
     background: #ccc;
     transition: var(--tran-04);
@@ -296,12 +300,18 @@ body.dark .calculator{
 
 body.dark .calculator button{
     background: #18191a;
-    color: #ccc;
+    color: var(--text-color)
 } 
 
 body.dark .calculator button.operator {
     background: #f69906;
 }
+
+body.dark .output .previous-operand, 
+body.dark .output .current-operand{
+    color: #18191a;
+}
+
 /*========--Sidebar Ends--========*/
 
 /*========--Calculator Starts--========*/
@@ -311,8 +321,21 @@ body.dark .calculator button.operator {
     width: 320px;
     display: flex;
     flex-direction: column;
-    padding:2% 0;
+    padding:1% 0;
     border-radius: 12px;
+}
+
+.calculator i{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: relative;
+    right: 20px;
+    top: 5px;
+    margin: 0;
+    padding: 0;    
+    font-size: 25px;
+    color: white;
 }
 
 .row{
