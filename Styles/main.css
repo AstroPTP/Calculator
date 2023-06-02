@@ -6,7 +6,7 @@
 }
 
 :root{
-/*----------Colors----------*/
+/*--Colors--*/
 --body-color: #e4e9f7;
 --sidebar-color: #fff;
 --primary-color: #695cfe;
@@ -14,7 +14,7 @@
 --toggle-color: #ddd;
 --text-color: #707070;
 
-/*----------Transitions----------*/
+/*--Transitions--*/
 --tran-02:all 0.2s ease;
 --tran-03:all 0.3s ease;
 --tran-04:all 0.4s ease;
@@ -28,13 +28,9 @@ body{
     flex-direction: column;
     width: 100%;
     min-height: 100vh;
-    background: var(--body-color);
-    transition: var(--tran-05);
     padding: 2% 0;
-    background-image: url("Images/bg.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+    background-color: var(--body-color);
+    transition: var(--tran-05);
 }
 
 
@@ -43,20 +39,7 @@ body{
     color: #fff;
 }
 
-body.dark{
-    background-image: url("Images/bg-dark.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    transition: var(--tran-02);
-    --sidebar-color: #242526;
-    --primary-color: #3a3b3c;
-    --primary-color-light: #3a3b3c;
-    --toggle-color: #fff;
-    --text-color: #ccc;
-}
-
-/*----------Sidebar----------*/
+/*========--Sidebar Starts--========*/
 .sidebar{
     position: fixed;
     top: 0;
@@ -73,7 +56,7 @@ body.dark{
     width: 88px;
 }
 
-/*----------Reusable CSS----------*/
+/*--Light Mode--*/
 .sidebar .text{
     font-size: 16px;
     font-weight: 500;
@@ -183,10 +166,6 @@ header .img-text .profession{
     transform: translateY(-50%);
 }
 
-body.dark .sidebar header .toggle{
-    color: var(--text-color);
-}
-
 .sidebar.close  .toggle{
     transform: translateY(-50%) rotate(0deg);
 }
@@ -216,12 +195,6 @@ body.dark .sidebar header .toggle{
     color:var(--sidebar-color);
 }
 
-body.dark li a:hover .icon,
-body.dark li a:hover .text{
-    color:var(--text-color);
-}
-
-/*Dark Mode*/
 .sidebar .menu-bar {
     height: calc(100% - 50px);
     display: flex;
@@ -248,14 +221,6 @@ body.dark li a:hover .text{
 }
 
 .menu-bar .mode i.sun{ 
-    opacity: 0;
-}
-
-body.dark .mode i.sun{
-    opacity: 1;
-}
-
-body.dark .mode i.moon{
     opacity: 0;
 }
 
@@ -293,41 +258,60 @@ body.dark .mode i.moon{
     transition: var(--tran-03);
 }
 
+/*--Dark Mode--*/
+body.dark{
+    --body-color:#18191a;
+    --sidebar-color: #242526;
+    --primary-color: #3a3b3c;
+    --primary-color-light: #3a3b3c;
+    --toggle-color: #fff;
+    --text-color: #ccc;
+}
+
+body.dark .sidebar header .toggle{
+    color: var(--text-color);
+}
+
+body.dark li a:hover .icon,
+body.dark li a:hover .text{
+    color:var(--text-color);
+}
+
+body.dark .mode i.sun{
+    opacity: 1;
+}
+
+body.dark .mode i.moon{
+    opacity: 0;
+}
+
 body.dark .switch::before{
     left: 20px;
 }
 
-/*TODO: Dark mode color for calculator*/
 body.dark .calculator{
-    background: #e4e9f7;
+    background: #ccc;
     transition: var(--tran-04);
 }
 
-.home{
-    position: absolute;
-    height: 100vh;
-    left:250px;
-    width: calc(100% - 250px);
-    background: var(--body-color);
-    transition: var(--tran-05);
+body.dark .calculator button{
+    background: #18191a;
+    color: #ccc;
+} 
+
+body.dark .calculator button.operator {
+    background: #f69906;
 }
+/*========--Sidebar Ends--========*/
 
-.sidebar.close ~ .home{
-    left:78px;
-    width: calc(100% - 78px);
-}
-
-/*TODO: Center the Calculator*/
-
-
-/*---------Calculator design starts---------*/
+/*========--Calculator Starts--========*/
 .calculator{
     background: #000;
     box-shadow: 0px 12px 18px rgb(0 0 0/10%);
     width: 320px;
     display: flex;
     flex-direction: column;
-    padding: 2% 0;
+    padding:2% 0;
     border-radius: 12px;
 }
 
@@ -359,7 +343,7 @@ button{
     background-color: rgb(19, 19, 19);
 }
 
-/*Display area*/
+/*--Display area--*/
 .output {
     grid-column: 1 / -1;
     color: #fff;
@@ -398,8 +382,4 @@ button.multiply:after{
     position: absolute;
     background-color: #f69906;
 }
-/*---------Calculator design ends---------*/
-
-/*---------Navigation starts---------*/
-
-/*---------Navigation ends---------*/
+/*========--Calculator Ends--========*/
