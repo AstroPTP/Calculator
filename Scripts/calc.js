@@ -66,9 +66,8 @@ class Calculator {
         this.operation = undefined
         this.previousOperand = ''
     }
-    //TODO: Solve % case when display percent of the prev
     percent() {
-        this.currentOperand = this.previousOperand * this.currentOperand / 100 
+        this.currentOperand = this.currentOperand / 100
     }
     
     getDisplayNumber(number) {
@@ -147,7 +146,7 @@ deleteButton.addEventListener('click', button =>{
     calculator.updateDisplay()
 })
 
-percentButton.addEventListener('click', () => {
+percentButton.addEventListener('click', button => {
     calculator.percent()
     calculator.updateDisplay()
 })
