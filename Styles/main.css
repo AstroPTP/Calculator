@@ -1,0 +1,405 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: Helvetica, sans-serif;
+}
+
+:root{
+/*----------Colors----------*/
+--body-color: #e4e9f7;
+--sidebar-color: #fff;
+--primary-color: #695cfe;
+--primary-color-light: #f6f5ff;
+--toggle-color: #ddd;
+--text-color: #707070;
+
+/*----------Transitions----------*/
+--tran-02:all 0.2s ease;
+--tran-03:all 0.3s ease;
+--tran-04:all 0.4s ease;
+--tran-05:all 0.5s ease;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100vh;
+    background: var(--body-color);
+    transition: var(--tran-05);
+    padding: 2% 0;
+    background-image: url("Images/bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+
+::selection{
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+body.dark{
+    background-image: url("Images/bg-dark.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    transition: var(--tran-02);
+    --sidebar-color: #242526;
+    --primary-color: #3a3b3c;
+    --primary-color-light: #3a3b3c;
+    --toggle-color: #fff;
+    --text-color: #ccc;
+}
+
+/*----------Sidebar----------*/
+.sidebar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 250px;
+    padding: 10px 14px;
+    background: var(--sidebar-color);
+    transform: var(--tran-05);
+    z-index: 100;
+}
+
+.sidebar.close{
+    width: 88px;
+}
+
+/*----------Reusable CSS----------*/
+.sidebar .text{
+    font-size: 16px;
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: 1;
+}
+
+.sidebar.close .text{
+    opacity: 0;
+}
+
+.sidebar .image{
+    min-width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebar li{
+    height: 50px;
+    margin-top: 10px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar .icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 60px;
+    font-size: 20px;
+    border-radius: 6px;
+}
+
+.sidebar .icon,
+.sidebar .text{
+    color:var(--text-color);
+    transition: var(--tran-03);
+}
+
+.sidebar header{
+    position: relative;
+}
+
+.sidebar .img-text img{
+    width: 40px;
+    border-radius: 6px;
+}
+
+.sidebar header .image, .sidebar .icon{
+    min-width: 60px;
+    border-radius: 6px;
+}
+
+.sidebar header .img-text{
+    display: flex;
+    align-items: center;
+}
+
+.sidebar header .logo-text{
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar header .image{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebar header .image img{
+    width: 40px;
+    border-radius: 6px;
+}
+
+header .img-text .name{
+    margin-top: 2px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+header .img-text .profession{
+    font-size: 16px;
+    margin-top: -2px;
+    display: block;
+}
+
+.sidebar header .toggle{
+    position: absolute;
+    top: 50%;
+    right: -25px;
+    transform: translateY(-50%) rotate(180deg);
+    height: 25px;
+    width: 25px;
+    background: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: var(--sidebar-color);
+    font-size: 22px;
+    transition: var(--tran-03);
+}
+
+.sidebar.close header .toggle{
+    transform: translateY(-50%);
+}
+
+body.dark .sidebar header .toggle{
+    color: var(--text-color);
+}
+
+.sidebar.close  .toggle{
+    transform: translateY(-50%) rotate(0deg);
+}
+
+.sidebar .menu{
+    margin-top: 40px;
+}
+
+.sidebar li a{
+    list-style: none;
+    height: 100%;
+    background-color: transparent;
+    width: 100%;
+    display: flex;
+    align-items: center;  
+    text-decoration: none;
+    border-radius: 6px;
+    transition: var(--tran-03);
+}
+
+.sidebar li a:hover{
+    background: var(--primary-color);
+}
+
+.sidebar li a:hover .icon,
+.sidebar li a:hover .text{
+    color:var(--sidebar-color);
+}
+
+body.dark li a:hover .icon,
+body.dark li a:hover .text{
+    color:var(--text-color);
+}
+
+/*Dark Mode*/
+.sidebar .menu-bar {
+    height: calc(100% - 50px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.menu-bar .mode{
+    position: relative;
+    border-radius: 6px;
+    background:var(--primary-color-light);
+    transition: var(--tran-05);
+}
+
+.menu-bar .mode .moon-sun{
+    height: 50px;
+    width: 60px;
+    display: flex;
+    align-items: center;
+}
+
+.mode .moon-sun i{ 
+    position: absolute;
+}
+
+.menu-bar .mode i.sun{ 
+    opacity: 0;
+}
+
+body.dark .mode i.sun{
+    opacity: 1;
+}
+
+body.dark .mode i.moon{
+    opacity: 0;
+}
+
+.menu-bar .mode .toggle-switch{
+    position: absolute;
+    right: 0;
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    min-width: 60px;
+    cursor: pointer;
+    border-radius: 6px;
+} 
+
+.toggle-switch .switch{
+    position: relative;
+    height: 22px;
+    width: 40px;
+    border-radius: 25px;
+    background: var(--toggle-color);
+    transition: var(--tran-05);
+}
+
+.switch::before{
+    content:'';
+    position: absolute;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    top: 50%;
+    left:5px;
+    transform: translateY(-50%);
+    background: var(--sidebar-color);
+    transition: var(--tran-03);
+}
+
+body.dark .switch::before{
+    left: 20px;
+}
+
+/*TODO: Dark mode color for calculator*/
+body.dark .calculator{
+    background: #e4e9f7;
+    transition: var(--tran-04);
+}
+
+.home{
+    position: absolute;
+    height: 100vh;
+    left:250px;
+    width: calc(100% - 250px);
+    background: var(--body-color);
+    transition: var(--tran-05);
+}
+
+.sidebar.close ~ .home{
+    left:78px;
+    width: calc(100% - 78px);
+}
+
+/*TODO: Center the Calculator*/
+
+
+/*---------Calculator design starts---------*/
+.calculator{
+    background: #000;
+    box-shadow: 0px 12px 18px rgb(0 0 0/10%);
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+    padding: 2% 0;
+    border-radius: 12px;
+}
+
+.row{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button{
+    outline:none;
+    border:none;
+    padding: 5%;
+    width: 60px;
+    display: flex;
+    margin: 2%;
+    cursor:pointer;
+    background-color: #313131;
+    color: #fff;
+    font-weight: 500;
+    font-size:1.5rem;
+    height: 62px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+::selection{
+    background-color: rgb(19, 19, 19);
+}
+
+/*Display area*/
+.output {
+    grid-column: 1 / -1;
+    color: #fff;
+    height: 120px;
+    text-align: right;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    padding: 10px;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.output .previous-operand {
+    color: rgba(255,255,255,.75);
+    font-size: 1.5rem;
+}
+
+.output .current-operand {
+    color: white;
+    font-size: 2.5rem;
+}
+/*Operator buttons*/
+button.operator{
+    background: #f69906;
+}
+
+button.divide:after{
+    content: "÷";
+    position: absolute;
+    background-color: #f69906;
+}
+
+button.multiply:after{
+    content: "x";
+    position: absolute;
+    background-color: #f69906;
+}
+/*---------Calculator design ends---------*/
+
+/*---------Navigation starts---------*/
+
+/*---------Navigation ends---------*/
