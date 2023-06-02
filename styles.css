@@ -2,7 +2,7 @@
     margin:0;
     padding:0;
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Helvetica, sans-serif;
 }
 
 :root{
@@ -310,6 +310,15 @@ body.dark .calculator{
 /*TODO: Center the Calculator*/
 
 /*---------Calculator---------*/
+=======
+    padding: 2% 0;
+    background-image: url("Images/bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+/*---------Calculator design starts---------*/
 .calculator{
     background: #000;
     box-shadow: 0px 12px 18px rgb(0 0 0/10%);
@@ -387,3 +396,8 @@ button.multiply:after{
     position: absolute;
     background-color: #f69906;
 }
+/*---------Calculator design ends---------*/
+
+/*---------Navigation starts---------*/
+
+/*---------Navigation ends---------*/
