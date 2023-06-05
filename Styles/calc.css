@@ -1,0 +1,87 @@
+.calculator{
+    background: #000;
+    box-shadow: 0px 12px 18px rgb(0 0 0/10%);
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+    padding:1% 0;
+    border-radius: 12px;
+}
+
+/*History Icon on the Calculator*/
+.calculator i{
+    position: relative;
+    margin-left: 85%;
+    margin-top: 7%;
+    font-size: 25px;
+    color: white;
+    width: 30px;
+}
+
+.row{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button{
+    outline:none;
+    border:none;
+    padding: 5%;
+    width: 60px;
+    display: flex;
+    margin: 2%;
+    cursor:pointer;
+    background-color: #313131;
+    color: #fff;
+    font-weight: 500;
+    font-size:1.5rem;
+    height: 62px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+::selection{
+    background-color: rgb(19, 19, 19);
+}
+
+/*--Display area--*/
+.output {
+    grid-column: 1 / -1;
+    color: #fff;
+    height: 120px;
+    text-align: right;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    padding: 10px;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.output .previous-operand {
+    color: rgba(255,255,255,.75);
+    font-size: 1.5rem;
+}
+
+.output .current-operand {
+    color: white;
+    font-size: 2.5rem;
+}
+/*Operator buttons*/
+button.operator{
+    background: #f69906;
+}
+
+button.divide:after{
+    content: "÷";
+    position: absolute;
+    background-color: #f69906;
+}
+
+button.multiply:after{
+    content: "x";
+    position: absolute;
+    background-color: #f69906;
+}
