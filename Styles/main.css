@@ -33,7 +33,6 @@ body{
     transition: var(--tran-05);
 }
 
-
 ::selection{
     background-color: var(--primary-color);
     color: #fff;
@@ -259,13 +258,13 @@ header .img-text .profession{
 }
 
 /*--Dark Mode--*/
-body.dark{
-    --body-color:#18191a;
-    --sidebar-color: #242526;
-    --primary-color: #3a3b3c;
-    --primary-color-light: #3a3b3c;
+body.dark {
+    --body-color: #050505;
+    --sidebar-color: #5A5A5A;
+    --primary-color: #19BAAB;
+    --primary-color-light: #19BAAB;
     --toggle-color: #fff;
-    --text-color: #ccc;
+    --text-color: white;
 }
 
 body.dark .sidebar header .toggle{
@@ -290,119 +289,33 @@ body.dark .switch::before{
 }
 
 body.dark .title{
-    color: #ccc;
+    color: #DADADA;
 }
 
 body.dark .calculator{
-    background: #ccc;
+    background: #939393 ;
     transition: var(--tran-04);
 }
 
 body.dark .calculator button{
-    background: #18191a;
-    color: var(--text-color)
+    background: #18191A;
+    color: #DADADA;
 } 
 
 body.dark .calculator button.operator {
     background: #f69906;
 }
 
-body.dark .output .previous-operand, 
-body.dark .output .current-operand{
-    color: #18191a;
-}
-
 /*========--Sidebar Ends--========*/
-
-/*========--Calculator Starts--========*/
-.calculator{
-    background: #000;
-    box-shadow: 0px 12px 18px rgb(0 0 0/10%);
-    width: 320px;
-    display: flex;
-    flex-direction: column;
-    padding:1% 0;
-    border-radius: 12px;
-}
-
-.calculator i{
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
+.container{
     position: relative;
-    right: 20px;
-    top: 5px;
-    margin: 0;
-    padding: 0;    
-    font-size: 25px;
-    color: white;
-}
-
-.row{
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: transform 0.3s ease; 
 }
 
-button{
-    outline:none;
-    border:none;
-    padding: 5%;
-    width: 60px;
-    display: flex;
-    margin: 2%;
-    cursor:pointer;
-    background-color: #313131;
-    color: #fff;
-    font-weight: 500;
-    font-size:1.5rem;
-    height: 62px;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
+.sidebar.close + .container{
+    transform: translateX(250px);
 }
 
-::selection{
-    background-color: rgb(19, 19, 19);
-}
-
-/*--Display area--*/
-.output {
-    grid-column: 1 / -1;
-    color: #fff;
-    height: 120px;
-    text-align: right;
-    display: flex;
-    justify-content: space-around;
-    flex-direction: column;
-    padding: 10px;
-    word-wrap: break-word;
-    word-break: break-all;
-}
-
-.output .previous-operand {
-    color: rgba(255,255,255,.75);
-    font-size: 1.5rem;
-}
-
-.output .current-operand {
-    color: white;
-    font-size: 2.5rem;
-}
-/*Operator buttons*/
-button.operator{
-    background: #f69906;
-}
-
-button.divide:after{
-    content: "÷";
-    position: absolute;
-    background-color: #f69906;
-}
-
-button.multiply:after{
-    content: "x";
-    position: absolute;
-    background-color: #f69906;
-}
-/*========--Calculator Ends--========*/

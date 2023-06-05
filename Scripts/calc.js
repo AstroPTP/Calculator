@@ -44,20 +44,20 @@ class Calculator {
         if (isNaN(prev) || isNaN(current)) return
         switch (this.operation) {
             case '+':
-                computation = prev + current
+                computation = parseFloat((prev + current).toFixed(2));
                 break
             case '-':
-                computation = prev - current
+                computation = parseFloat((prev - current).toFixed(2));
                 break
             case '*':
-                computation = prev * current
+                computation = parseFloat((prev * current).toFixed(2));
                 break
             case '÷':
                 if((this.operation == "÷") && (this.currentOperand == "0")) {
                     computation = "Error"
                     break
                 }
-                computation = prev / current
+                computation = parseFloat((prev / current).toFixed(2));
                 break
             default: 
                 return
@@ -67,7 +67,7 @@ class Calculator {
         this.previousOperand = ''
     }
     percent() {
-        this.currentOperand = this.currentOperand / 100
+        this.currentOperand = parseFloat((this.currentOperand / 100).toFixed(2));
     }
     
     getDisplayNumber(number) {
