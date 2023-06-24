@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="Images/calculator.png">
+    <title>Calculator</title>
+    <!------------CSS--------------------->
+    <link rel="stylesheet" href="Styles/main.css">
+    <link rel="stylesheet" href="Styles/calc.css">
+    <!------------Boxicon CSS---------->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+</head>
+
+<body>
+    <!----------Side bar---------->
+    <nav class="sidebar close">
+        <header>
+            <div class="img-text">
+                <span class="image">
+                    <img src="Images/calculator.png" alt="logo">
+                </span>
+                <div class="text logo-text">
+                    <span class="name">Calculator</span>
+                    <span class="profession">IOS theme calculator</span>
+                </div>
+            </div>
+            <i class='bx bx-chevron-right toggle'></i>
+        </header>
+        <!----------Side bar links---------->
+        <div class="menu-bar">
+            <div class="menu">
+                <ul class="menu-links">
+                    <li class="nav-links">
+                        <a href="#">
+                            <i class='bx bx-home-alt-2 icon'></i>
+                            <span class="text nav-text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-links">
+                        <a href="#">
+                            <i class='bx bx-math icon'></i>
+                            <span class="text nav-text">Standard</span>
+                        </a>
+                    </li>
+                    <li class="nav-links">
+                        <a href="#">
+                            <i class='bx bx-transfer icon'></i>
+                            <span class="text nav-text">Converter</span>
+                        </a>
+                    </li>
+                    <li class="nav-links">
+                        <a href="#">
+                            <i class='bx bx-history icon'></i>
+                            <span class="text nav-text">History</span>
+                        </a>
+                    </li>
+                    <li class="nav-links">
+                        <a href="#">
+                            <i class='bx bx-conversation icon'></i>
+                            <span class="text nav-text">Feedback</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!----------Dark Mode button---------->
+            <div class="bottom-content">
+                <li class="mode">
+                    <div class="moon-sun">
+                        <i class='bx bx-sun icon sun'></i>
+                        <i class='bx bx-moon icon moon'></i>
+                    </div>
+                    <span class="mode-text text">Dark Mode</span>
+                    <div class="toggle-switch">
+                        <span class="switch"></span>
+                    </div>
+                </li>
+            </div>
+        </div>
+    </nav>
+    <!----------Calculator---------->
+    <h1 class="title">Standard</h1>
+    <div class="container">
+        <div class="calculator">
+            <i class='bx bx-history'></i>
+            <div class="output">
+                <div data-previous-operand class="previous-operand"></div>
+                <div data-current-operand class="current-operand"></div>
+            </div>
+            <div class="row">
+                <button data-all-clear>AC</button>
+                <button data-percent>%</button>
+                <button data-delete>&larr;</button>
+                <button data-operand class="divide operator">÷</button>
+            </div>
+            <div class="row">
+                <button data-numbers>7</button>
+                <button data-numbers>8</button>
+                <button data-numbers>9</button>
+                <button data-operand class="multiply operator">*</button>
+            </div>
+            <div class="row">
+                <button data-numbers>4</button>
+                <button data-numbers>5</button>
+                <button data-numbers>6</button>
+                <button data-operand class="operator">-</button>
+            </div>
+            <div class="row">
+                <button data-numbers>1</button>
+                <button data-numbers>2</button>
+                <button data-numbers>3</button>
+                <button data-operand class="operator">+</button>
+            </div>
+            <div class="row">
+                <button data-numbers>0</button>
+                <button data-numbers>00</button>
+                <button data-numbers>.</button>
+                <button data-equal class="operator">=</button>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="Scripts/calc.js"></script>
+<script src="Scripts/sidebar.js"></script>
+
+</html>
